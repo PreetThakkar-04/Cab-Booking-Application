@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bookingcabapp;
 
 import javax.swing.JFrame;
+import java.sql.*;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author TARAL THAKKAR
- */
 public class SignupPage extends javax.swing.JFrame {
 
     /**
@@ -41,11 +34,11 @@ public class SignupPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField3 = new javax.swing.JPasswordField();
+        jTextField_emailid = new javax.swing.JTextField();
+        jTextField_phone = new javax.swing.JTextField();
+        jTextField_username = new javax.swing.JTextField();
+        jPasswordField_retypepasswd = new javax.swing.JPasswordField();
+        jPasswordField_passwd = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2Login = new javax.swing.JLabel();
@@ -136,24 +129,29 @@ public class SignupPage extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Password               :");
 
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jTextField_emailid.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jTextField_phone.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jTextField_username.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        jPasswordField1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jPasswordField_retypepasswd.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        jPasswordField3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jPasswordField3.addActionListener(new java.awt.event.ActionListener() {
+        jPasswordField_passwd.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jPasswordField_passwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField3ActionPerformed(evt);
+                jPasswordField_passwdActionPerformed(evt);
             }
         });
 
         jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton1.setText("Signup");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -184,7 +182,7 @@ public class SignupPage extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_emailid, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -195,15 +193,15 @@ public class SignupPage extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField_username, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPasswordField3)
+                                    .addComponent(jPasswordField_passwd)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jPasswordField_retypepasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(45, 45, 45))))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -223,23 +221,23 @@ public class SignupPage extends javax.swing.JFrame {
                 .addGap(77, 77, 77)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_emailid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField_passwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField_retypepasswd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jLabel2Login)
                 .addGap(18, 18, 18)
@@ -279,9 +277,9 @@ public class SignupPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel5BackMouseClicked
 
-    private void jPasswordField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField3ActionPerformed
+    private void jPasswordField_passwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField_passwdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField3ActionPerformed
+    }//GEN-LAST:event_jPasswordField_passwdActionPerformed
 
     private void jLabel2CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2CloseMouseClicked
         System.exit(0);
@@ -308,6 +306,52 @@ public class SignupPage extends javax.swing.JFrame {
         mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","");
+            PreparedStatement st = con.prepareStatement("insert into userdetails values(?,?,?,?,300)");
+            String username = jTextField_username.getText();
+            String emailid = jTextField_emailid.getText();
+            String phone = jTextField_phone.getText();
+            String pass = String.valueOf(jPasswordField_passwd.getPassword());
+            String repass = String.valueOf(jPasswordField_retypepasswd.getPassword());
+            st.setString(1, username);
+            st.setString(2, emailid);
+            st.setString(3, phone);
+            st.setString(4, pass);
+            if (username.equals(""))
+            {
+                JOptionPane.showMessageDialog(null, "Add username");
+            }
+            else if( !pass.equals(repass) ){
+                JOptionPane.showMessageDialog(null, "Retyped password does not match!");
+            }
+            else if( pass.equals("") ){
+                JOptionPane.showMessageDialog(null, "Enter Password");
+            }
+            else if( emailid.equals("") ){
+                JOptionPane.showMessageDialog(null, "Enter Emailid");
+            }
+            else if( phone.equals("") ){
+                JOptionPane.showMessageDialog(null, "Enter phone number");
+            }
+            else{
+                if( st.executeUpdate() > 0){
+                 JOptionPane.showMessageDialog(null, "New User Added Succesfully!");
+                }
+            }    
+            st.close();
+            con.close();
+        }catch(SQLIntegrityConstraintViolationException ex){ 
+           JOptionPane.showMessageDialog(null, "Username already exists!");
+        }
+        catch(Exception e){
+            System.out.println("Exec:"+e);
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -359,10 +403,10 @@ public class SignupPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPasswordField jPasswordField_passwd;
+    private javax.swing.JPasswordField jPasswordField_retypepasswd;
+    private javax.swing.JTextField jTextField_emailid;
+    private javax.swing.JTextField jTextField_phone;
+    private javax.swing.JTextField jTextField_username;
     // End of variables declaration//GEN-END:variables
 }
