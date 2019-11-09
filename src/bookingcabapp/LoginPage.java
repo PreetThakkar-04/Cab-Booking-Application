@@ -6,6 +6,8 @@
 package bookingcabapp;
 
 import javax.swing.JFrame;
+import java.sql.*;
+import javax.swing.*;
 
 /**
  *
@@ -38,9 +40,9 @@ public class LoginPage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        jTextField_username = new javax.swing.JTextField();
+        jPasswordField_password = new javax.swing.JPasswordField();
+        jButton_login = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1Signup = new javax.swing.JLabel();
 
@@ -118,22 +120,24 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Username :");
 
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jTextField_username.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        jPasswordField1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jPasswordField_password.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_login.setBackground(new java.awt.Color(51, 51, 255));
+        jButton_login.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jButton_login.setText("Login");
+        jButton_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_loginActionPerformed(evt);
             }
         });
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton2.setText("Cancel");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -162,7 +166,7 @@ public class LoginPage extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1))
+                                .addComponent(jTextField_username))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,10 +176,10 @@ public class LoginPage extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jPasswordField1))
+                                        .addComponent(jPasswordField_password))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                                        .addComponent(jButton1)
+                                        .addComponent(jButton_login)
                                         .addGap(35, 35, 35))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(90, 90, 90)
@@ -188,17 +192,17 @@ public class LoginPage extends javax.swing.JFrame {
                 .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1Signup)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(jButton_login))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -246,9 +250,39 @@ public class LoginPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel1SignupMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_loginActionPerformed
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","");
+            ResultSet rs;
+            String username = jTextField_username.getText();
+            String pass = String.valueOf(jPasswordField_password.getPassword());
+            String query = "SELECT * FROM userdetails WHERE username = ? AND passwd = ?";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setString(1,username);
+            st.setString(2, pass);
+            rs = st.executeQuery();
+            
+            if( rs.next() ){
+                HomePage hp = new HomePage();
+                hp.setVisible(true);
+                hp.pack();
+                hp.setLocationRelativeTo(null);
+                hp.jLabel_u.setText("Welcome, "+ username);
+                //this.dispose();
+                jPasswordField_password.setText("");
+                jTextField_username.setText("");
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"INCORRECT USERNAME OR PASSWORD.\nLOGIN FAILED!");
+            }
+            st.close();
+            con.close();
+        }catch(Exception e){
+            System.out.println("Exception:"+e);
+        }
+    }//GEN-LAST:event_jButton_loginActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         MainPage mp = new MainPage();
@@ -295,8 +329,8 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_login;
     private javax.swing.JLabel jLabel1Close;
     private javax.swing.JLabel jLabel1Signup;
     private javax.swing.JLabel jLabel2;
@@ -306,7 +340,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPasswordField_password;
+    private javax.swing.JTextField jTextField_username;
     // End of variables declaration//GEN-END:variables
 }
