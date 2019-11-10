@@ -6,6 +6,7 @@
 package bookingcabapp;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -92,7 +93,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 0));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -115,6 +116,7 @@ public class HomePage extends javax.swing.JFrame {
         jButton_bookcab.setBackground(new java.awt.Color(255, 255, 0));
         jButton_bookcab.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton_bookcab.setText("Book A Cab");
+        jButton_bookcab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton_bookcab.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton_bookcabMouseClicked(evt);
@@ -191,12 +193,17 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_bookcabMouseEntered
 
     private void jButton_bookcabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_bookcabMouseClicked
-        BookCabWindow mp = new BookCabWindow();
-        mp.setVisible(true);
-        mp.pack();
-        mp.setLocationRelativeTo(null);
-        mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+        if( Customer.getWallet() < 300 ){
+            JOptionPane.showMessageDialog(null,"Insufficient wallet balance.\nMinimum Rs. 300 required.");
+        }
+        else{
+            BookCabWindow mp = new BookCabWindow();
+            mp.setVisible(true);
+            mp.pack();
+            mp.setLocationRelativeTo(null);
+            mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton_bookcabMouseClicked
 
     /**

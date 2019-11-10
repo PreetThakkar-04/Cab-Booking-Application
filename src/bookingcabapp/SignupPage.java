@@ -311,7 +311,7 @@ public class SignupPage extends javax.swing.JFrame {
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","preet@0431");
             PreparedStatement st = con.prepareStatement("insert into userdetails values(?,?,?,?,300)");
             String username = jTextField_username.getText();
             String emailid = jTextField_emailid.getText();

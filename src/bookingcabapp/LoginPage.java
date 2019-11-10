@@ -42,7 +42,7 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField_username = new javax.swing.JTextField();
         jPasswordField_password = new javax.swing.JPasswordField();
-        jButton_login = new javax.swing.JButton();
+        javax.swing.JButton jButton_login = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1Signup = new javax.swing.JLabel();
 
@@ -253,7 +253,7 @@ public class LoginPage extends javax.swing.JFrame {
     private void jButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_loginActionPerformed
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","preet@0431");
             ResultSet rs;
             String username = jTextField_username.getText();
             String pass = String.valueOf(jPasswordField_password.getPassword());
@@ -269,9 +269,13 @@ public class LoginPage extends javax.swing.JFrame {
                 hp.pack();
                 hp.setLocationRelativeTo(null);
                 hp.jLabel_u.setText("Welcome, "+ username);
+                String email = rs.getString("email");
+                String phone = rs.getString("phone");
+                int walletamt = rs.getInt("wallet");
                 //this.dispose();
                 jPasswordField_password.setText("");
                 jTextField_username.setText("");
+                Customer c = new Customer(username,email,pass,phone,walletamt);
                 
             }
             else{
@@ -330,7 +334,6 @@ public class LoginPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton_login;
     private javax.swing.JLabel jLabel1Close;
     private javax.swing.JLabel jLabel1Signup;
     private javax.swing.JLabel jLabel2;
