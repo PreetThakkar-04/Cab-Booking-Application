@@ -34,7 +34,6 @@ public class LoginPage extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1Close = new javax.swing.JLabel();
         jLabel3Min = new javax.swing.JLabel();
         jLabel5Back = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -53,15 +52,6 @@ public class LoginPage extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel2.setText("Login Form");
-
-        jLabel1Close.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1Close.setText("X");
-        jLabel1Close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1Close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1CloseMouseClicked(evt);
-            }
-        });
 
         jLabel3Min.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3Min.setText("_");
@@ -90,10 +80,8 @@ public class LoginPage extends javax.swing.JFrame {
                 .addComponent(jLabel5Back)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(98, 98, 98)
+                .addGap(124, 124, 124)
                 .addComponent(jLabel3Min)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1Close)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -105,7 +93,6 @@ public class LoginPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel1Close)
                     .addComponent(jLabel5Back))
                 .addContainerGap())
         );
@@ -224,10 +211,6 @@ public class LoginPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1CloseMouseClicked
-        this.dispose();
-    }//GEN-LAST:event_jLabel1CloseMouseClicked
-
     private void jLabel3MinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MinMouseClicked
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabel3MinMouseClicked
@@ -334,7 +317,6 @@ public class LoginPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1Close;
     private javax.swing.JLabel jLabel1Signup;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3Min;

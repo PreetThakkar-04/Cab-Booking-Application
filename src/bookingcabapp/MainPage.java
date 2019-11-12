@@ -21,6 +21,7 @@ public class MainPage extends javax.swing.JFrame {
     /**
      * Creates new form MainPage
      */
+    private RandomDriver rm;
     static private int x = 0;
     public MainPage() {
         initComponents();
@@ -162,6 +163,8 @@ public class MainPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1CloseMouseClicked
+
+        RandomDriver.flag = 0;
         System.exit(0);
     }//GEN-LAST:event_jLabel1CloseMouseClicked
 
@@ -175,7 +178,9 @@ public class MainPage extends javax.swing.JFrame {
         lp.pack();
         lp.setLocationRelativeTo(null);
         lp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        if( x == 0){
+        if( x == 0 ){
+            rm = new RandomDriver();
+            rm.start();
             try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","preet@0431");
