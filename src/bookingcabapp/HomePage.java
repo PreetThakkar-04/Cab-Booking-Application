@@ -36,8 +36,8 @@ public class HomePage extends javax.swing.JFrame {
         jLabel_closewindow = new javax.swing.JLabel();
         jLabel_minimizewindow = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton_EditProf = new javax.swing.JButton();
+        jButton2_mywallet = new javax.swing.JButton();
         jButton_logout = new javax.swing.JButton();
         jButton_bookcab = new javax.swing.JButton();
 
@@ -72,9 +72,9 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(231, Short.MAX_VALUE)
-                .addComponent(jLabel_u, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(149, 149, 149)
+                .addContainerGap(256, Short.MAX_VALUE)
+                .addComponent(jLabel_u, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
                 .addComponent(jLabel_minimizewindow)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel_closewindow)
@@ -86,22 +86,34 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(jLabel_minimizewindow)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel_u, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel_closewindow))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_closewindow)
+                    .addComponent(jLabel_u, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 0));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton1.setText("Edit Profile");
+        jButton_EditProf.setBackground(new java.awt.Color(255, 255, 0));
+        jButton_EditProf.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jButton_EditProf.setText("Edit Profile");
+        jButton_EditProf.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_EditProf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_EditProfMouseClicked(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 0));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton2.setText("My Wallet");
+        jButton2_mywallet.setBackground(new java.awt.Color(255, 255, 0));
+        jButton2_mywallet.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jButton2_mywallet.setText("My Wallet");
+        jButton2_mywallet.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2_mywallet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2_mywalletMouseClicked(evt);
+            }
+        });
 
         jButton_logout.setBackground(new java.awt.Color(255, 255, 0));
         jButton_logout.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -135,8 +147,8 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButton_bookcab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton_logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2_mywallet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton_EditProf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -145,9 +157,9 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(85, 85, 85)
                 .addComponent(jButton_bookcab)
                 .addGap(49, 49, 49)
-                .addComponent(jButton1)
+                .addComponent(jButton_EditProf)
                 .addGap(49, 49, 49)
-                .addComponent(jButton2)
+                .addComponent(jButton2_mywallet)
                 .addGap(50, 50, 50)
                 .addComponent(jButton_logout)
                 .addContainerGap(119, Short.MAX_VALUE))
@@ -206,6 +218,30 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_bookcabMouseClicked
 
+    private void jButton2_mywalletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2_mywalletMouseClicked
+            MyWallet mw = new MyWallet();
+            mw.setVisible(true);
+            mw.pack();
+            mw.setLocationRelativeTo(null);
+            mw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            int wallet = Customer.getWallet();
+            mw.jLabel3_wallet.setText(wallet+"");
+            this.dispose();
+    }//GEN-LAST:event_jButton2_mywalletMouseClicked
+
+    private void jButton_EditProfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_EditProfMouseClicked
+            EditProfile mw = new EditProfile();
+            mw.setVisible(true);
+            mw.pack();
+            mw.setLocationRelativeTo(null);
+            mw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            mw.jTextField_uname.setText(Customer.getUsername());
+            mw.jTextField_email.setText(Customer.getEmail());
+            mw.jTextField_phno.setText(Customer.getPhone());
+            mw.jTextField_passwd.setText(Customer.getPassword());
+            this.dispose();
+    }//GEN-LAST:event_jButton_EditProfMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -242,8 +278,8 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton2_mywallet;
+    private javax.swing.JButton jButton_EditProf;
     private javax.swing.JButton jButton_bookcab;
     private javax.swing.JButton jButton_logout;
     private javax.swing.JLabel jLabel_closewindow;

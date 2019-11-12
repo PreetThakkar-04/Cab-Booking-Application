@@ -5,17 +5,23 @@
  */
 package bookingcabapp;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JFrame;
 
 /**
  *
  * @author TARAL THAKKAR
  */
+
 public class MainPage extends javax.swing.JFrame {
 
     /**
      * Creates new form MainPage
      */
+    static private int x = 0;
     public MainPage() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -169,6 +175,22 @@ public class MainPage extends javax.swing.JFrame {
         lp.pack();
         lp.setLocationRelativeTo(null);
         lp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        if( x == 0){
+            try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","preet@0431");
+            ResultSet rs;
+            String query2 = "update cabbookingapp.driver set Aval = 1";
+            PreparedStatement st2 = con.prepareStatement(query2);
+            int count = st2.executeUpdate();
+            st2.close();
+            con.close();
+            }
+            catch(Exception e){
+            System.out.println("Exception:"+e);
+            }
+            x = 1;
+        }
         this.dispose();
     }//GEN-LAST:event_jLabelLoginMouseClicked
 

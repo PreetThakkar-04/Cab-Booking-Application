@@ -225,7 +225,7 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1CloseMouseClicked
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jLabel1CloseMouseClicked
 
     private void jLabel3MinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MinMouseClicked

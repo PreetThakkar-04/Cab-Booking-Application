@@ -5,10 +5,7 @@
  */
 package bookingcabapp;
 
-/**
- *
- * @author TARAL THAKKAR
- */
+
 public class BookingCabApp {
 
     /**

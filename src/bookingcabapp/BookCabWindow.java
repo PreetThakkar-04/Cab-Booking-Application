@@ -32,6 +32,10 @@ public class BookCabWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        jlabel_closewind = new javax.swing.JLabel();
+        jLabel_minimizewind = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5Back = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -40,31 +44,80 @@ public class BookCabWindow extends javax.swing.JFrame {
         jButton1_BookNow = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 0));
+
+        jlabel_closewind.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jlabel_closewind.setText("X");
+        jlabel_closewind.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlabel_closewind.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlabel_closewindMouseClicked(evt);
+            }
+        });
+
+        jLabel_minimizewind.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel_minimizewind.setText("_");
+        jLabel_minimizewind.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_minimizewind.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_minimizewindMouseClicked(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel3.setText("Ride Details");
+
+        jLabel5Back.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel5Back.setText("←");
+        jLabel5Back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5Back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5BackMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5Back)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(158, 158, 158)
+                .addComponent(jLabel_minimizewind)
+                .addGap(18, 18, 18)
+                .addComponent(jlabel_closewind)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlabel_closewind)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5Back))
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel_minimizewind)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("DropOff Location");
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("PickUp Location");
 
-        jComboBox1_pickup.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        jComboBox1_pickup.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jComboBox1_pickup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E" }));
         jComboBox1_pickup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +125,7 @@ public class BookCabWindow extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2_dropoff.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        jComboBox2_dropoff.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jComboBox2_dropoff.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E" }));
         jComboBox2_dropoff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,26 +146,26 @@ public class BookCabWindow extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addComponent(jButton1_BookNow)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                        .addComponent(jComboBox2_dropoff, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addComponent(jComboBox2_dropoff, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(172, 172, 172))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addComponent(jButton1_BookNow)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jComboBox1_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(117, 117, 117))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(71, 71, 71)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(379, Short.MAX_VALUE)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(356, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,14 +176,14 @@ public class BookCabWindow extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jComboBox2_dropoff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(50, 50, 50)
                 .addComponent(jButton1_BookNow)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(108, 108, 108)
                     .addComponent(jLabel2)
-                    .addContainerGap(258, Short.MAX_VALUE)))
+                    .addContainerGap(264, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,6 +227,10 @@ public class BookCabWindow extends javax.swing.JFrame {
             if( fare > Customer.getWallet()){
                         JOptionPane.showMessageDialog(null, "Insufficient Wallet balance for the trip.");
                     }
+            else if (Customer.BookACab(pi)==-1)
+            {
+                JOptionPane.showMessageDialog(null, "Request Timeout!");
+            }
             else{
                     Confirmation cf = new Confirmation(pi,di);
                     cf.setVisible(true);
@@ -181,9 +238,31 @@ public class BookCabWindow extends javax.swing.JFrame {
                     cf.setLocationRelativeTo(null);
                     cf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     this.dispose();
+                    
+                    Thread t1 = new Thread(cf);
+                    t1.start();
             }
         }
     }//GEN-LAST:event_jButton1_BookNowMouseClicked
+
+    private void jlabel_closewindMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_closewindMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jlabel_closewindMouseClicked
+
+    private void jLabel_minimizewindMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_minimizewindMouseClicked
+        this.setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_jLabel_minimizewindMouseClicked
+
+    private void jLabel5BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5BackMouseClicked
+        HomePage mp = new HomePage();
+        mp.setVisible(true);
+        mp.pack();
+        mp.setLocationRelativeTo(null);
+        mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        String usname = Customer.getUsername();
+        mp.jLabel_u.setText("Welcome, "+ usname);
+        this.dispose();
+    }//GEN-LAST:event_jLabel5BackMouseClicked
 
     /**
      * @param args the command line arguments
@@ -227,7 +306,11 @@ public class BookCabWindow extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2_dropoff;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5Back;
+    private javax.swing.JLabel jLabel_minimizewind;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jlabel_closewind;
     // End of variables declaration//GEN-END:variables
 }

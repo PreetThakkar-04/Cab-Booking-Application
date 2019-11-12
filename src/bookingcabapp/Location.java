@@ -16,9 +16,9 @@ public class Location {
                     loc[i][i]=0;
                 }
                 loc[0][1]=3;
-                loc[0][2]=3;
+                loc[0][2]=5;
                 loc[0][3]=2;
-                loc[0][4]=3;
+                loc[0][4]=6;
                 loc[1][0]=3;
                 loc[1][2]=7;
                 loc[1][3]=5;
