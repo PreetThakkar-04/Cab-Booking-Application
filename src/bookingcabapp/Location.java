@@ -22,7 +22,7 @@ public class Location {
                 loc[1][0]=3;
                 loc[1][2]=7;
                 loc[1][3]=5;
-                loc[1][4]=4;
+                loc[1][4]=5;
                 loc[2][0]=4;
                 loc[2][1]=5;
                 loc[2][3]=7;

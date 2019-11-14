@@ -17,6 +17,11 @@ public class HomePage extends javax.swing.JFrame {
     /**
      * Creates new form HomePage
      */
+    public Customer Customer;
+    public void transC(Customer Customer)
+    {
+        this.Customer=Customer;
+    }
     public HomePage() {
         initComponents();
          this.setLocationRelativeTo(null);
@@ -184,6 +189,7 @@ public class HomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel_closewindowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_closewindowMouseClicked
+       Customer.changeLoginStatus(0);
        this.dispose();
     }//GEN-LAST:event_jLabel_closewindowMouseClicked
 
@@ -197,6 +203,7 @@ public class HomePage extends javax.swing.JFrame {
         mp.pack();
         mp.setLocationRelativeTo(null);
         mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Customer.changeLoginStatus(0);
         this.dispose();
     }//GEN-LAST:event_jButton_logoutMouseClicked
 
@@ -214,6 +221,7 @@ public class HomePage extends javax.swing.JFrame {
             mp.pack();
             mp.setLocationRelativeTo(null);
             mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            mp.transC(Customer);
             this.dispose();
         }
     }//GEN-LAST:event_jButton_bookcabMouseClicked
@@ -226,6 +234,7 @@ public class HomePage extends javax.swing.JFrame {
             mw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             int wallet = Customer.getWallet();
             mw.jLabel3_wallet.setText(wallet+"");
+            mw.transC(Customer);
             this.dispose();
     }//GEN-LAST:event_jButton2_mywalletMouseClicked
 
@@ -239,6 +248,7 @@ public class HomePage extends javax.swing.JFrame {
             mw.jTextField_email.setText(Customer.getEmail());
             mw.jTextField_phno.setText(Customer.getPhone());
             mw.jTextField_passwd.setText(Customer.getPassword());
+            mw.transC(Customer);
             this.dispose();
     }//GEN-LAST:event_jButton_EditProfMouseClicked
 

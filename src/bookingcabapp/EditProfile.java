@@ -20,6 +20,11 @@ public class EditProfile extends javax.swing.JFrame {
     /**
      * Creates new form EditProfile
      */
+    public Customer Customer;
+    public void transC(Customer Customer)
+    {
+        this.Customer=Customer;
+    }
     public EditProfile() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -48,7 +53,7 @@ public class EditProfile extends javax.swing.JFrame {
         jTextField_email = new javax.swing.JTextField();
         jTextField_passwd = new javax.swing.JTextField();
         jButton_cancel = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton_confirm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -141,11 +146,11 @@ public class EditProfile extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 255));
-        jButton2.setText("Confirm Changes");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton_confirm.setBackground(new java.awt.Color(0, 0, 255));
+        jButton_confirm.setText("Confirm Changes");
+        jButton_confirm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                jButton_confirmMouseClicked(evt);
             }
         });
 
@@ -172,7 +177,7 @@ public class EditProfile extends javax.swing.JFrame {
                         .addGap(173, 173, 173)
                         .addComponent(jButton_cancel)
                         .addGap(105, 105, 105)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton_confirm)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -197,7 +202,7 @@ public class EditProfile extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_cancel)
-                    .addComponent(jButton2))
+                    .addComponent(jButton_confirm))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
 
@@ -231,8 +236,8 @@ public class EditProfile extends javax.swing.JFrame {
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabel_minimizewindMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        String usname = jTextField_uname.getText();
+    private void jButton_confirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_confirmMouseClicked
+        String  usname = jTextField_uname.getText();
         String email = jTextField_email.getText();
         String phno = jTextField_phno.getText();
         String Password = jTextField_passwd.getText();
@@ -246,7 +251,12 @@ public class EditProfile extends javax.swing.JFrame {
             st.setString(3,phno);
             st.setString(4,Password);
             st.setString(5,Customer.getUsername());
-            System.out.println(Customer.getUsername());
+            Customer.customerName=usname;
+            Customer.customerEmail=email;
+            Customer.customerPasswd=Password;
+            Customer.customerPhone=phno;
+            
+            
             int count = st.executeUpdate();
             st.close();
             con.close();
@@ -259,7 +269,7 @@ public class EditProfile extends javax.swing.JFrame {
             jTextField_email.setText(email+"");
             jTextField_phno.setText(phno+"");
             jTextField_passwd.setText(Password+"");
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_jButton_confirmMouseClicked
 
     private void jButton_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_cancelMouseClicked
         HomePage mp = new HomePage();
@@ -269,6 +279,7 @@ public class EditProfile extends javax.swing.JFrame {
         mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         String usname = Customer.getUsername();
         mp.jLabel_u.setText("Welcome, "+ usname);
+        mp.transC(Customer);
         this.dispose();
     }//GEN-LAST:event_jButton_cancelMouseClicked
 
@@ -308,8 +319,8 @@ public class EditProfile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton_cancel;
+    private javax.swing.JButton jButton_confirm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

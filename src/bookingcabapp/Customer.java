@@ -11,9 +11,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-public class Customer {
-        static private String customerName,driver,customerEmail,customerPasswd,customerPhone;
-        static private int customerWallet;
+public class Customer extends Thread{
+        public String customerName,driver,customerEmail,customerPasswd,customerPhone;
+        public int customerWallet;
+       
+        
+        
+        
+        
         public Customer(String customerName,String customerEmail,String customerPasswd,String customerPhone, int customerWallet)
         {
             this.customerName = customerName;
@@ -23,10 +28,10 @@ public class Customer {
             this.customerPasswd=customerPasswd;
             this.customerPhone=customerPhone;
         }
-        static public int BookACab(int pi){
-            int locationArr[]=new int[3];
-            int ratingArr[]=new int [3];
-            int avalArr[]=new int [3];
+        public int BookACab(int pi){
+            int locationArr[]=new int[10];
+            int ratingArr[]=new int [10];
+            int avalArr[]=new int [10];
             try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","preet@0431");
@@ -75,10 +80,10 @@ public class Customer {
         
         
         
-        public static int getWallet(){
+        public  int getWallet(){
             return customerWallet;
         }
-        public static void reduceWallet(int fare){
+        public void reduceWallet(int fare){
             customerWallet = customerWallet - fare;
             try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -95,7 +100,7 @@ public class Customer {
             System.out.println("Exception:"+e);
             }
         }
-        public static void addWallet(int addToWallet)
+        public void addWallet(int addToWallet)
         {
             customerWallet = customerWallet + addToWallet;
             try{
@@ -114,16 +119,32 @@ public class Customer {
             }
           
         }
-       public static String getUsername(){
+       public String getUsername(){
            return customerName;
        }
-       public static String getEmail(){
+       public String getEmail(){
            return customerEmail;
        }
-       public static String getPhone(){
+       public String getPhone(){
            return customerPhone;
        }
-       public static String getPassword(){
+       public String getPassword(){
            return customerPasswd;
+       }
+       public void changeLoginStatus(int stat){
+            try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","preet@0431");
+            String query = "update cabbookingapp.userdetails set loginstatus = ? where username = ?";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1, stat);
+            st.setString(2, customerName);
+            int count = st.executeUpdate();
+            st.close();
+            con.close();
+            }
+            catch(Exception e){
+            System.out.println("Exception:"+e);
+            }
        }
 }

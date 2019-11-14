@@ -13,6 +13,11 @@ public class MyWallet extends javax.swing.JFrame {
     /**
      * Creates new form MyWallet
      */
+    public Customer Customer;
+    public void transC(Customer Customer)
+    {
+        this.Customer=Customer;
+    }
     public MyWallet() {
         initComponents();
     }
@@ -200,11 +205,24 @@ public class MyWallet extends javax.swing.JFrame {
         else
         {
             int addToWallet = Integer.parseInt(jTextField1_addmoney.getText());
-            int currentWallet = Integer.parseInt(jLabel3_wallet.getText());
-            Customer.addWallet(addToWallet);
-            JOptionPane.showMessageDialog(null, "Money Added Successfuly");
-            int finalWallet = currentWallet + addToWallet;
-            jLabel3_wallet.setText(finalWallet+"");
+            if (addToWallet>=0 && addToWallet <=1000)
+            {   
+                int currentWallet = Integer.parseInt(jLabel3_wallet.getText());
+                if( currentWallet + addToWallet >= 10000 ){
+                    JOptionPane.showMessageDialog(null, "Total wallet limit exceeded.\nMax. wallet limit is INR 10000.");
+                }
+                else{
+                    Customer.addWallet(addToWallet);
+                    JOptionPane.showMessageDialog(null, "Money Added Successfuly");
+                    int finalWallet = currentWallet + addToWallet;
+                    jLabel3_wallet.setText(finalWallet+"");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Amount Not Allowed.");
+            }
+            
         }
     }//GEN-LAST:event_jButton1_addwalletMouseClicked
 
@@ -216,6 +234,7 @@ public class MyWallet extends javax.swing.JFrame {
         mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         String usname = Customer.getUsername();
         mp.jLabel_u.setText("Welcome, "+ usname);
+        mp.transC(Customer);
         this.dispose();
     }//GEN-LAST:event_jLabel5BackMouseClicked
 

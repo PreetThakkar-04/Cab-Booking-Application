@@ -19,22 +19,23 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,33,0,0,3,9"/>
   </AuxValues>
 
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
-          <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel3" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="65" pref="65" max="-2" attributes="0"/>
+              <Component id="jPanel4" max="32767" attributes="0"/>
           </Group>
+          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -50,11 +51,10 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel5Back" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="161" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
                   <Component id="jLabel_minimizewind" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jlabel_closewind" min="-2" max="-2" attributes="0"/>
@@ -69,7 +69,10 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jlabel_closewind" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel5Back" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Component id="jLabel5Back" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -143,55 +146,52 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
-                  <Component id="jButton1_BookNow" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="86" max="32767" attributes="0"/>
-                          <Component id="jComboBox2_dropoff" min="-2" pref="154" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jComboBox1_pickup" min="-2" pref="154" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="183" max="-2" attributes="0"/>
-                      <EmptySpace pref="356" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel2" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jComboBox2_dropoff" min="-2" pref="176" max="-2" attributes="0"/>
+                              <Component id="jComboBox1_pickup" min="-2" pref="176" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="294" max="-2" attributes="0"/>
+                          <Component id="jButton1_BookNow" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
+                  <EmptySpace pref="170" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-                  <Component id="jComboBox1_pickup" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBox1_pickup" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboBox2_dropoff" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
                   <Component id="jButton1_BookNow" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="126" max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="264" max="32767" attributes="0"/>
-                  </Group>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -226,13 +226,14 @@
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
-                <StringItem index="0" value="A"/>
-                <StringItem index="1" value="B"/>
-                <StringItem index="2" value="C"/>
-                <StringItem index="3" value="D"/>
-                <StringItem index="4" value="E"/>
+                <StringItem index="0" value="Fist of the First Men"/>
+                <StringItem index="1" value="Castle Black"/>
+                <StringItem index="2" value="East Watch"/>
+                <StringItem index="3" value="Shadow Tower"/>
+                <StringItem index="4" value="Craster&apos;s Keep"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="1"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1_pickupActionPerformed"/>
@@ -248,13 +249,14 @@
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
-                <StringItem index="0" value="A"/>
-                <StringItem index="1" value="B"/>
-                <StringItem index="2" value="C"/>
-                <StringItem index="3" value="D"/>
-                <StringItem index="4" value="E"/>
+                <StringItem index="0" value="Fist of the First Men"/>
+                <StringItem index="1" value="Castle Black"/>
+                <StringItem index="2" value="East Watch"/>
+                <StringItem index="3" value="Shadow Tower"/>
+                <StringItem index="4" value="Craster&apos;s Keep"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="1"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox2_dropoffActionPerformed"/>
@@ -272,10 +274,23 @@
               <Font name="Times New Roman" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Confirm Booking"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1_BookNowMouseClicked"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\TARAL THAKKAR\Desktop\Tale_map_Three-Eyed_Raven_North1.jpg"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

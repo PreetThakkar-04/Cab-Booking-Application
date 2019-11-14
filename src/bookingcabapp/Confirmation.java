@@ -21,11 +21,17 @@ public class Confirmation extends javax.swing.JFrame implements Runnable{
     int distance;
     int fare;
     String drivername;
+    public Customer Customer;
+    public void transC(Customer Customer)
+    {
+        this.Customer=Customer;
+    }
     /**
      * Creates new form Confirmation
      */
-    public Confirmation(int pi,int di) {
+    public Confirmation(int pi,int di,Customer Customer) {
         initComponents();
+        this.Customer=Customer;
         Location l = new Location();
         distance = l.getDistance(pi,di);
         dur = l.tripDuration(pi,di);
@@ -66,7 +72,7 @@ public class Confirmation extends javax.swing.JFrame implements Runnable{
     @Override
     public void run(){
             Driver.updateAval(driverIndex,0);
-            try{Thread.sleep(dur*10000);} catch(InterruptedException e){}
+            try{Thread.sleep(dur*5000);} catch(InterruptedException e){}
             Driver.updateAval(driverIndex,1);
             int wallet = Customer.getWallet();
             Bill b = new Bill();
@@ -74,6 +80,7 @@ public class Confirmation extends javax.swing.JFrame implements Runnable{
             b.pack();
             b.setLocationRelativeTo(null);
             b.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            b.transC(Customer);
             b.getDriverIndex(driverIndex);
             b.jLabel_fare.setText(fare+"");
             b.jLabel_Duration.setText(dur+"");

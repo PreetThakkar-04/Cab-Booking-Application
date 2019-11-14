@@ -7,11 +7,14 @@ package bookingcabapp;
 
 import javax.swing.JFrame;
 
-/**
- *
- * @author TARAL THAKKAR
- */
 public class Bill extends javax.swing.JFrame {
+    
+    
+    public Customer Customer;
+    public void transC(Customer Customer)
+    {
+        this.Customer=Customer;
+    }
 
     int dIndex;
     public Bill() {
@@ -260,6 +263,7 @@ public class Bill extends javax.swing.JFrame {
         mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         String usname = Customer.getUsername();
         mp.jLabel_u.setText("Welcome, "+ usname);
+        mp.transC(Customer);
         this.dispose();
     }//GEN-LAST:event_jButton_ReturnMouseClicked
 

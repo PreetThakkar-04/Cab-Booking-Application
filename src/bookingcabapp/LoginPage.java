@@ -9,10 +9,7 @@ import javax.swing.JFrame;
 import java.sql.*;
 import javax.swing.*;
 
-/**
- *
- * @author TARAL THAKKAR
- */
+
 public class LoginPage extends javax.swing.JFrame {
 
     /**
@@ -247,19 +244,27 @@ public class LoginPage extends javax.swing.JFrame {
             rs = st.executeQuery();
             
             if( rs.next() ){
-                HomePage hp = new HomePage();
-                hp.setVisible(true);
-                hp.pack();
-                hp.setLocationRelativeTo(null);
-                hp.jLabel_u.setText("Welcome, "+ username);
-                String email = rs.getString("email");
-                String phone = rs.getString("phone");
-                int walletamt = rs.getInt("wallet");
+                int loginstat = rs.getInt("loginstatus");
+                if(loginstat == 1){
+                    JOptionPane.showMessageDialog(null,"User Already Logged In.\nLOGIN FAILED!");
+                }
                 //this.dispose();
-                jPasswordField_password.setText("");
-                jTextField_username.setText("");
-                Customer c = new Customer(username,email,pass,phone,walletamt);
-                
+                else{
+                    HomePage hp = new HomePage();
+                    hp.setVisible(true);
+                    hp.pack();
+                    hp.setLocationRelativeTo(null);
+                    hp.jLabel_u.setText("Welcome, "+ username);
+                    String email = rs.getString("email");
+                    String phone = rs.getString("phone");
+                    int walletamt = rs.getInt("wallet");
+                    jPasswordField_password.setText("");
+                    jTextField_username.setText("");
+                    Customer c = new Customer(username,email,pass,phone,walletamt);
+                    c.changeLoginStatus(1);
+                    hp.transC(c);
+                    c.start();
+                }
             }
             else{
                 JOptionPane.showMessageDialog(null,"INCORRECT USERNAME OR PASSWORD.\nLOGIN FAILED!");

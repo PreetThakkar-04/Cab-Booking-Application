@@ -148,7 +148,7 @@
                           <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
                           <Component id="jButton_cancel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton_confirm" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="49" max="32767" attributes="0"/>
@@ -181,7 +181,7 @@
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton_cancel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_confirm" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="81" max="32767" attributes="0"/>
               </Group>
@@ -287,7 +287,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_cancelMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="jButton_confirm">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="0" type="rgb"/>
@@ -295,7 +295,7 @@
             <Property name="text" type="java.lang.String" value="Confirm Changes"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_confirmMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>

@@ -5,12 +5,13 @@
  */
 package bookingcabapp;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author TARAL THAKKAR
- */
 public class AdminPage extends javax.swing.JFrame {
 
     /**
@@ -38,10 +39,10 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jTextField_adminname = new javax.swing.JTextField();
+        jPasswordField_adminPasswd = new javax.swing.JPasswordField();
+        jButton_adminLogin = new javax.swing.JButton();
+        jButton_adminCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -117,20 +118,27 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Username :");
 
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jTextField_adminname.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        jPasswordField1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jPasswordField_adminPasswd.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jButton1.setText("Login");
-
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jButton2.setText("Cancel");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton_adminLogin.setBackground(new java.awt.Color(51, 51, 255));
+        jButton_adminLogin.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jButton_adminLogin.setText("Login");
+        jButton_adminLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_adminLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                jButton_adminLoginMouseClicked(evt);
+            }
+        });
+
+        jButton_adminCancel.setBackground(new java.awt.Color(255, 0, 0));
+        jButton_adminCancel.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jButton_adminCancel.setText("Cancel");
+        jButton_adminCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_adminCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_adminCancelMouseClicked(evt);
             }
         });
 
@@ -144,18 +152,18 @@ public class AdminPage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1))
+                        .addComponent(jTextField_adminname))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
+                            .addComponent(jButton_adminCancel)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPasswordField1))
+                                .addComponent(jPasswordField_adminPasswd))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                                .addComponent(jButton1)
+                                .addComponent(jButton_adminLogin)
                                 .addGap(67, 67, 67)))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
@@ -165,15 +173,15 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_adminname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField_adminPasswd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton_adminLogin)
+                    .addComponent(jButton_adminCancel))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
@@ -212,14 +220,54 @@ public class AdminPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel5BackMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void jButton_adminCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_adminCancelMouseClicked
         MainPage mp = new MainPage();
         mp.setVisible(true);
         mp.pack();
         mp.setLocationRelativeTo(null);
         mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_jButton_adminCancelMouseClicked
+
+    private void jButton_adminLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_adminLoginMouseClicked
+        String an = "Admin";
+        String ap = "kamp";
+        if (!an.equals(jTextField_adminname.getText()))
+        {
+            JOptionPane.showMessageDialog(null,"Invalid Admin Username");
+        }
+        else if (!ap.equals(String.valueOf(jPasswordField_adminPasswd.getPassword())))
+        {
+            JOptionPane.showMessageDialog(null,"Invalid Password!");
+        }
+        else
+        {
+            adminFunctionality af = new adminFunctionality();
+            af.setVisible(true);
+            af.pack();
+            af.setLocationRelativeTo(null);
+            af.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbookingapp?serverTimezone=UTC","root","preet@0431");
+            ResultSet rs;
+            String query1 = "select * from driver";
+            PreparedStatement st1 = con.prepareStatement(query1);
+            rs = st1.executeQuery();
+            while (rs.next())
+            {
+                String name = rs.getString("drivername");
+                af.jComboBox_drivers.addItem(name);
+            }
+            st1.close();
+            con.close();
+            }
+            catch(Exception e){
+            System.out.println("Exception:"+e);
+            }
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButton_adminLoginMouseClicked
 
     /**
      * @param args the command line arguments
@@ -257,8 +305,8 @@ public class AdminPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_adminCancel;
+    private javax.swing.JButton jButton_adminLogin;
     private javax.swing.JLabel jLabel1Close;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3Min;
@@ -267,7 +315,7 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPasswordField_adminPasswd;
+    private javax.swing.JTextField jTextField_adminname;
     // End of variables declaration//GEN-END:variables
 }
